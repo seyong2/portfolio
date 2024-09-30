@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Seyong Ryoo
 layout: home
 ---
 
