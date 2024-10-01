@@ -9,7 +9,7 @@ I'm currently based in Amsterdam, The Netherlands, where I am seeking new opport
 
 For more details on my academic background and professional experience, feel free to check out my [CV](https://github.com/user-attachments/files/17210502/Seyong.Ryoo.Resume.pdf).
 
----
+
 
 [Just the Docs]: https://just-the-docs.github.io/just-the-docs/
 [GitHub Pages]: https://docs.github.com/en/pages
