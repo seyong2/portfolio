@@ -1,6 +1,7 @@
 ---
 title: About Me
 layout: home
+nav_order: 1
 ---
 
 I was born and raised in South Korea, and at the age of 18, I made the bold decision to move to Spain on my own to pursue my studies. This experience shaped me in ways I never anticipated, teaching me resilience, adaptability, and the importance of stepping out of my comfort zone to embrace new opportunities. That sense of adventure has since taken me to live in different cities around the world, giving me the chance to create priceless memories and experiences along the way. 
