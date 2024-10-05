@@ -20,7 +20,7 @@ Feline emotions can be grouped into four broad groups: positive emotions, negati
   - **Eyes**: A soft, relaxed face with half-closed eyes (or slow blinking) is a common sign of a happy, relaxed cat. The pupils are typically narrowed or slit-like.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/965a201a-f1f1-40fb-af77-2c9acfb60651" width="300" title="happy-cat">
+  <img src="https://github.com/user-attachments/assets/965a201a-f1f1-40fb-af77-2c9acfb60651" width="300" height=200 title="happy-cat">
 </p>
 
 - **Affection**
@@ -30,7 +30,7 @@ Feline emotions can be grouped into four broad groups: positive emotions, negati
   - **Eyes**: Soft, relaxed eyes with slow blinks show affection and trust.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/cfb0e9b1-0013-4aab-a0a6-950dcb4187cf" width="300" title="affectionate-cat">
+  <img src="https://github.com/user-attachments/assets/cfb0e9b1-0013-4aab-a0a6-950dcb4187cf" width="300" height=200 title="affectionate-cat">
 </p>
 
 - **Playfulness**
@@ -42,7 +42,7 @@ Feline emotions can be grouped into four broad groups: positive emotions, negati
 However, note that pupil size can also be affected by lighting conditions. In bright environments, even an angry or aggressive cat can have constricted pupils. A cat's pupils naturally constrict to control the amount of light entering their eyes, regardless of mood.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/951ae7e1-4d66-470a-9ab6-6cc399c7e5bc" width="300" title="playful-cat">
+  <img src="https://github.com/user-attachments/assets/951ae7e1-4d66-470a-9ab6-6cc399c7e5bc" width="300" height=200 title="playful-cat">
 </p>
 
 ### Negative Emotions
@@ -54,7 +54,7 @@ However, note that pupil size can also be affected by lighting conditions. In br
   - **Eyes**: Wide, dilated pupils and a tense face indicate fear. The whiskers may also be pulled back.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e9faf0e7-2f55-4588-8b8a-a1cf3addd1a4" width="300" title="scared-cat">
+  <img src="https://github.com/user-attachments/assets/e9faf0e7-2f55-4588-8b8a-a1cf3addd1a4" width="300" height=200 title="scared-cat">
 </p>
 
 - **Anger**
@@ -64,7 +64,7 @@ However, note that pupil size can also be affected by lighting conditions. In br
   - **Eyes**: A cat showing its teeth with a wrinkled nose, dilated pupils, and a tense mouth is often preparing to strike or defend itself. Hissing or growling may accompany this posture.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/d0f87bdd-a4b9-4ce2-bbe6-bb0b59044e7a" width="300" title="angry-cat">
+  <img src="https://github.com/user-attachments/assets/d0f87bdd-a4b9-4ce2-bbe6-bb0b59044e7a" width="300" height=200 title="angry-cat">
 </p>
 
 - **Stress / Anxiety**
@@ -74,7 +74,7 @@ However, note that pupil size can also be affected by lighting conditions. In br
   - **Eyes**: Wide, dilated pupils and tense facial muscles indicate stress. The whiskers may be rigid and pushed outward.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/d7de2173-e96b-44f1-8e39-1b97369339c6" width="300" title="anxious-cat">
+  <img src="https://github.com/user-attachments/assets/d7de2173-e96b-44f1-8e39-1b97369339c6" width="300" height=200 title="anxious-cat">
 </p>
 
 ### Neutral / Passive States
@@ -86,7 +86,7 @@ However, note that pupil size can also be affected by lighting conditions. In br
   - **Eyes**: Closed or half-closed eyes, relaxed whiskers, and slowing blinking indicate a calm, relaxed cat.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/bc8be71e-815b-494e-888d-855336988af05" width="300" title="relaxed-cat">
+  <img src="https://github.com/user-attachments/assets/bc8be71e-815b-494e-888d-855336988af05" width="300" height=200 title="relaxed-cat">
 </p>
 
 - **Boredom**
@@ -96,7 +96,7 @@ However, note that pupil size can also be affected by lighting conditions. In br
   - **Eyes**: The cat's eyes might be half-closed or fully open but unfocused. A bored cat often looks relaxed but disinterested in its surroundings.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e6136bb8-2937-4f9a-b120-5502d4c15af8" width="300" title="bored-cat">
+  <img src="https://github.com/user-attachments/assets/e6136bb8-2937-4f9a-b120-5502d4c15af8" width="300" height=200 title="bored-cat">
 </p>
 
 ### Curiosity / Alertness
@@ -108,8 +108,9 @@ However, note that pupil size can also be affected by lighting conditions. In br
     - **Eyes**: Wide, focused, dilated eyes and forward-pointing whiskers suggest curiosity. The mouth is usually closed, with the head slightly tilted.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/78255662-9b42-4dde-9a25-7580a003089b" width="300" title="curious-cat">
+  <img src="https://github.com/user-attachments/assets/2cdb3092-83e5-4e00-8485-96699735294e" width="300" height=200 title="curious-cat">
 </p>
+
 
 Now that we've explored how cats express different emotions through their body language, we can group these emotions into six states based on similar physical cues.
 
@@ -123,8 +124,8 @@ Now that we've explored how cats express different emotions through their body l
   - Relaxation
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/965a201a-f1f1-40fb-af77-2c9acfb60651" width="300" title="happy-cat">
-  <img src="https://github.com/user-attachments/assets/bc8be71e-815b-494e-888d-855336988af05" width="300" title="relaxed-cat">
+  <img src="https://github.com/user-attachments/assets/965a201a-f1f1-40fb-af77-2c9acfb60651" width="300" height=200 title="happy-cat">
+  <img src="https://github.com/user-attachments/assets/bc8be71e-815b-494e-888d-855336988af05" width="300" height=200 title="relaxed-cat">
 </p>
 
 ### Fearful / Defensive States:
@@ -137,8 +138,8 @@ Now that we've explored how cats express different emotions through their body l
   - Stress / Anxiety
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e9faf0e7-2f55-4588-8b8a-a1cf3addd1a4" width="300" title="scared-cat">
-  <img src="https://github.com/user-attachments/assets/d7de2173-e96b-44f1-8e39-1b97369339c6" width="300" title="anxious-cat">
+  <img src="https://github.com/user-attachments/assets/e9faf0e7-2f55-4588-8b8a-a1cf3addd1a4" width="300" height=200 title="scared-cat">
+  <img src="https://github.com/user-attachments/assets/d7de2173-e96b-44f1-8e39-1b97369339c6" width="300" height=200 title="anxious-cat">
 </p>
 
 ### Aggressive / Irritated States:
@@ -150,7 +151,7 @@ Now that we've explored how cats express different emotions through their body l
   - Anger / Aggression
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/d0f87bdd-a4b9-4ce2-bbe6-bb0b59044e7a" width="300" title="angry-cat">
+  <img src="https://github.com/user-attachments/assets/d0f87bdd-a4b9-4ce2-bbe6-bb0b59044e7a" width="300" height=200 title="angry-cat">
 </p>
 
 ### Curious / Alert States:
@@ -163,8 +164,8 @@ Now that we've explored how cats express different emotions through their body l
   - Playfulness
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/78255662-9b42-4dde-9a25-7580a003089b" width="300" title="curious-cat">
-  <img src="https://github.com/user-attachments/assets/951ae7e1-4d66-470a-9ab6-6cc399c7e5bc" width="300" title="playful-cat">
+  <img src="https://github.com/user-attachments/assets/2cdb3092-83e5-4e00-8485-96699735294e" width="300" height=200 title="curious-cat">
+  <img src="https://github.com/user-attachments/assets/951ae7e1-4d66-470a-9ab6-6cc399c7e5bc" width="300" height=200 title="playful-cat">
 </p>
 
 ### Affectionate States:
@@ -176,7 +177,7 @@ Now that we've explored how cats express different emotions through their body l
   - Affection
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/cfb0e9b1-0013-4aab-a0a6-950dcb4187cf" width="300" title="affectionate-cat">
+  <img src="https://github.com/user-attachments/assets/cfb0e9b1-0013-4aab-a0a6-950dcb4187cf" width="300" height=200 title="affectionate-cat">
 </p>
 
 ### Indifferent / Bored States:
@@ -188,7 +189,7 @@ Now that we've explored how cats express different emotions through their body l
   - Boredom
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e6136bb8-2937-4f9a-b120-5502d4c15af8" width="300" title="bored-cat">
+  <img src="https://github.com/user-attachments/assets/e6136bb8-2937-4f9a-b120-5502d4c15af8" width="300" height=200 title="bored-cat">
 </p>
 
 I will use this classification to gather images representing each of these states for the algorithm.
