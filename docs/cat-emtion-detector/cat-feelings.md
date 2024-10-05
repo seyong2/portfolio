@@ -2,6 +2,7 @@
 title: What Emotions Do Cats Feel?
 parent: Cat Emotion Recognition Journey
 nav_order: 1
+layout: default
 ---
 
 The first step in creating a product capable of recognizing cats' emotions is to identify the various feelings that cats can experience. Initially, I thought that cats might express as many emotions as we humans do. However, after reading multiple articles, I realized that understanding feline emotions is more complex than I had anticipated.
