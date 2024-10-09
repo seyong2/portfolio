@@ -13,7 +13,7 @@ In this post, we will explore how **Transformer**, the foundation of models like
 
 To begin, we need to convert words into numbers, as neural networks, including transformers, require numerical input. For this, we'll use word embeddings. The core idea behind word embeddings is to provide a numerical representation of text that captures the semantic meaning of words.
 
-magine we have a vocabulary consisting of five tokens: *<SOS>* (Start of Sentence), *te*, *y*, *quiero*, and *vas*. Suppose we want the network to produce two values for each token, meaning the word embeddings will be in a 2-dimensional space. The word embedding model would then look like this: starting with a one-hot matrix where each row has a value of 1 for its corresponding token and 0 for others. Given that our input tokens are *<SOS>* (Start of Sentence), *te*, and *quiero*, the resulting word embedding vector will be a matrix with a shape of (3$$\times$$2).
+magine we have a vocabulary consisting of five tokens: *<SOS>* (Start of Sentence), *te*, *y*, *quiero*, and *vas*. Suppose we want the network to produce two values for each token, meaning the word embeddings will be in a 2-dimensional space. The word embedding model would then look like this: starting with a one-hot matrix where each row has a value of 1 for its corresponding token and 0 for others. Given that our input tokens are *<SOS>* (Start of Sentence), *te*, and *quiero*, the resulting word embedding vector will be a matrix with a shape of 3 $$\times$$ 2.
 
 
 <p align="center">
