@@ -15,7 +15,7 @@ Recurrent Neural Networks (RNNs) can effectively address this challenge. RNNs ar
   <img src="https://github.com/user-attachments/assets/b032ffc2-b193-45e7-a085-729a259ba9eb" title="rnn">
 </p>
 
-In the diagram above, a portion of the neural network (represented by the gray box in the middle, labeled as $h_t$) receives an input $x_t$ and produces an output $y_t$ at time step $t$. The hidden state $h_t$ can be expressed as follows:
+In the diagram above, a portion of the neural network (represented by the gray box in the middle, labeled as $$h_t$$) receives an input $x_t$ and produces an output $y_t$ at time step $t$. The hidden state $h_t$ can be expressed as follows:
 
 $$ h_t = tanh(w_x \times x_t + w_h \times h_{t-1} + b) $$
 
