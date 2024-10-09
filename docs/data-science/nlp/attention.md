@@ -1,5 +1,5 @@
 ---
-title: Attention
+title: Attention is All You Need
 parent: Natural Language Processing
 nav_order: 3
 layout: default
