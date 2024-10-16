@@ -9,9 +9,9 @@ Depthwise separable convolution is a variation of standard convolution used prim
 
 In a traditional 2D convolution, you apply a single convolutional filter (or kernel) to all the input channels at once and produce a single output channel. However, in **depthwise separable convolution**, the process is split into two parts: 
 
-1. **Depthwise convolution**: Instead of applying one filter to all input channels, a separate filter is applied to each input channel independently. Each channel is convolved with its corresponding filter, producing an output channel for each input channel.
+1. **Depthwise convolution**: Instead of applying one filter to all input channels, a separate filter is applied to each input channel independently. Each channel is convolved with its corresponding filter, producing an output channel for each input channel. This captures spatial features but doesn't mix information across channels.
   
-2. **Pointwise convolution**: To combine the output from the depthwise convolution, a 1 $$\times$$ 1 convolution (pointwise convolution) is typically used to linearly combine the output channels.
+2. **Pointwise convolution**: To combine the output from the depthwise convolution, a 1 $$\times$$ 1 convolution (pointwise convolution) is typically used to linearly combine the output channels. This operation is used to mix information from different channels.
 
 ### Why use depthwise convolution?
 
@@ -36,14 +36,14 @@ Each filter performs 3 $$\times$$ 3 $$\times$$ 3 = 27 multiplications per pixel 
 Instead of applying 3 $$\times$$ 3 $$\times$$ 3 filter across all input channels, we apply a separate 3 $$\times$$ 3 filter to each channel individually. Since the input has 3 channels, we apply 3 filters (one per channel), and each filter is 3 $$\times$$ 3.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/42195a7c-09a2-4693-ba15-5a4f352a0ab6">
+  <img src="https://github.com/user-attachments/assets/f0a4527b-ebb9-4468-bd53-2d948764a03b">
 </p>
 
 Each depthwise filter performs 3 $$\times$$ 3 = 9 multiplications per convolution operation. As always, the filter is slid across the input, so we perform 4 $$\times$$ 4 $$\times$$ 9 = 144 multiplications. Since there are 3 channels, the number of multiplications for the depthwise convolution is 3 $$\times$$ 144 = 432. 
 
 - **Pointwise convolution**
 
-After depthwise convolution, we perform pointwise convolution, which is simply a 1 $$\times$$ 1 convlution applied across all input channels. This operation is used to mix information from different channels. The input to the pointwise convolution is the 4 $$\times$$ 4 output from the depthwise step, with 3 channels. We apply 4 1 $$\times$$ 1 filters (one per output channel).
+After depthwise convolution, we perform pointwise convolution, which is simply a 1 $$\times$$ 1 convlution applied across all input channels. The input to the pointwise convolution is the 4 $$\times$$ 4 output from the depthwise step, with 3 channels. We apply 4 1 $$\times$$ 1 filters (one per output channel).
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/3d480522-84bf-4d7a-b87b-7a229f27bac0">
