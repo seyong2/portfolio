@@ -31,7 +31,7 @@ Each filter performs 3 $$\times$$ 3 $$\times$$ 3 = 27 multiplications per pixel 
 
 ### Depthwise separable convolution
 
-1. **Depthwise convolution**
+- **Depthwise convolution**
 
 Instead of applying 3 $$\times$$ 3 $$\times$$ 3 filter across all input channels, we apply a separate 3 $$\times$$ 3 filter to each channel individually. Since the input has 3 channels, we apply 3 filters (one per channel), and each filter is 3 $$\times$$ 3.
 
@@ -41,7 +41,7 @@ Instead of applying 3 $$\times$$ 3 $$\times$$ 3 filter across all input channels
 
 Each depthwise filter performs 3 $$\times$$ 3 = 9 multiplications per convolution operation. As always, the filter is slid across the input, so we perform 4 $$\times$$ 4 $$\times$$ 9 = 144 multiplications. Since there are 3 channels, the number of multiplications for the depthwise convolution is 3 $$\times$$ 144 = 432. 
 
-2. **Pointwise convolution**
+- **Pointwise convolution**
 
 After depthwise convolution, we perform pointwise convolution, which is simply a 1 $$\times$$ 1 convlution applied across all input channels. This operation is used to mix information from different channels. The input to the pointwise convolution is the 4 $$\times$$ 4 output from the depthwise step, with 3 channels. We apply 4 1 $$\times$$ 1 filters (one per output channel).
 
