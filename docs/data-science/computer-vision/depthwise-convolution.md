@@ -19,7 +19,7 @@ The main advantage is that it drastically reduces the number of parameters and c
 
 Let's take a simple example to better understand how depthwise convolution helps reduce computational complexity. For this, we'll compare the number of multiplications required in standard convolution versus depthwise convolution. Suppose we have an input tensor with shape of 6 $$\times$$ 6 $$\times$$ 3 (height, width, and channels) and we want to apply a 3 $$\times$$ 3 convolution with 4 filters. We set the stride to 1 and the padding to 0.
 
-#### Standard convolution
+### Standard convolution
 
 Each filter has a size of 3 $$\times$$ 3 $$\times$$ 3 (because the filter must span all 3 input channels). The filter would slide across the input and produce one output channel (4 $$\times$$ 4) as can be seen below plot.
 
@@ -29,7 +29,7 @@ Each filter has a size of 3 $$\times$$ 3 $$\times$$ 3 (because the filter must s
 
 Each filter performs 3 $$\times$$ 3 $$\times$$ 3 = 27 multiplications per pixel in the input. The filter is then slid across the input, covering a 4 $$\times$$ 4 area (along the width and height), resulting in 4 $$\times$$ 4 convolution operations. Therefore, for each filter, we perform 4 $$\times$$ 4 $$\times$$ 27 = 432 multiplications. With 4 filters, total number of operations for the entire feature map is 4 $$\times$$ 432 = 1,728. This is computationally expensive, especially as the number of input channels and filters increases.
 
-#### Depthwise separable convolution
+### Depthwise separable convolution
 
 1. **Depthwise convolution**
 
@@ -53,7 +53,7 @@ Each 1 $$\times$$ 1 filter performs 1 multiplication per input channel, so each 
 
 The total number of operations for depthwise separable convolution is the sum of the depthwise and pointwise operations:
 
-$$ 432 (depthwise) + 192 (pointwise) = 624 multiplications. $$
+$$ 432 \ (depthwise) + 192 \ (pointwise) = 624 \ multiplications. $$
 
 By using depthwise separable convlution, we've reduced the computational cost by almost 3 times (1,728 vs. 624 multiplications).
 
