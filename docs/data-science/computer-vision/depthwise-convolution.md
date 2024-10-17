@@ -13,13 +13,13 @@ In a traditional 2D convolution, you apply a single convolutional filter (or ker
   
 2. **Pointwise convolution**: To combine the output from the depthwise convolution, a 1 $$\times$$ 1 convolution is typically used to linearly combine the output channels. This operation is used to mix information from different channels.
 
-### Why use depthwise convolution?
+### Why use Depthwise Separable Convolution?
 
 The main advantage is that it drastically reduces the number of parameters and computations, making models more efficient. Instead of convolving across all input channels simultaneously, depthwise convolution processes each channel individually, which simplifies the computation.
 
 Let's take a simple example to better understand how depthwise convolution helps reduce computational complexity. For this, we'll compare the number of multiplications required in standard convolution versus depthwise convolution. Suppose we have an input tensor with shape of 6 $$\times$$ 6 $$\times$$ 3 (height, width, and channels) and we want to apply a 3 $$\times$$ 3 convolution with 4 filters. We set the stride to 1 and the padding to 0.
 
-### Standard convolution
+### Standard Convolution
 
 Each filter has a size of 3 $$\times$$ 3 $$\times$$ 3 (because the filter must span all 3 input channels). The filter would slide across the input and produce one output channel (4 $$\times$$ 4) as seen in the figure below.
 
@@ -27,31 +27,33 @@ Each filter has a size of 3 $$\times$$ 3 $$\times$$ 3 (because the filter must s
   <img src="https://github.com/user-attachments/assets/e67fe61b-e7f7-4635-807c-491d87765745">
 </p>
 
-Each filter performs 3 $$\times$$ 3 $$\times$$ 3 = 27 multiplications per pixel in the input. The filter is then slid across the input, covering a 4 $$\times$$ 4 area (along the width and height), resulting in 4 $$\times$$ 4 convolution operations. Therefore, for each filter, we perform 4 $$\times$$ 4 $$\times$$ 27 = 432 multiplications. With 4 filters, the total number of operations for the entire feature map is 4 $$\times$$ 432 = 1,728. This is computationally expensive, especially as the number of input channels and filters increases.
+Each filter performs 3 $$\times$$ 3 $$\times$$ 3 = 27 multiplications per output pixel. The filter is then slid across the input, covering the spatial dimensions (along the width and height), resulting in 4 $$\times$$ 4 = 16 convolution operations. Therefore, for each filter, we perform 27 $$\times$$ 16 = 432 multiplications in total. 
 
-### Depthwise separable convolution
+With 4 filters, the total number of operations for the entire feature map is 4 $$\times$$ 432 = 1,728. This can become computationally expensive, especially as the number of input channels and filters increases.
+
+### Depthwise Separable Convolution
 
 - **Depthwise convolution**
 
-Instead of applying 3 $$\times$$ 3 $$\times$$ 3 filter across all input channels, we apply a separate 3 $$\times$$ 3 filter to each channel individually. Since the input has 3 channels, we apply 3 filters (one per channel), and each filter is 3 $$\times$$ 3.
+Instead of applying a single 3 $$\times$$ 3 $$\times$$ 3 filters across all input channels at once (as in a standard convolution), we use a separate 3 $$\times$$ 3 filter to each channel individually. Since the input has 3 channels, we apply 3 filters (one per channel), and each filter is 3 $$\times$$ 3.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/f0a4527b-ebb9-4468-bd53-2d948764a03b">
 </p>
 
-Each depthwise filter performs 3 $$\times$$ 3 = 9 multiplications per convolution operation. As always, the filter is slid across the input, so we perform 4 $$\times$$ 4 $$\times$$ 9 = 144 multiplications. Since there are 3 channels, the number of multiplications for the depthwise convolution is 3 $$\times$$ 144 = 432. 
+Each depthwise filter performs 3 $$\times$$ 3 = 9 multiplications per spatial location in the input. As always, the filter slides across the input, covering an output feature map of size 4 $$\times$$ 4, we perform 4 $$\times$$ 4 $$\times$$ 9 = 144 multiplications for each channel. Since there are 3 channels, the total number of multiplications for the depthwise convolution is 3 $$\times$$ 144 = 432. 
 
 - **Pointwise convolution**
 
-After depthwise convolution, we perform pointwise convolution, which is simply a 1 $$\times$$ 1 convolution applied across all input channels. The input to the pointwise convolution is the 4 $$\times$$ 4 output from the depthwise step, with 3 channels. We apply 4 filters of shape 1 $$\times$$ 1 (one per output channel).
+After depthwise convolution, we perform a pointwise convolution, which is simply a 1 $$\times$$ 1 convolution applied across all input channels. The input to the pointwise convolution is the 4 $$\times$$ 4 output from the depthwise step, with 3 channels. We apply 4 filters of shape 1 $$\times$$ 1.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/3d480522-84bf-4d7a-b87b-7a229f27bac0">
 </p>
 
-Each 1 $$\times$$ 1 filter performs 1 multiplication per input channel, so each 1 $$\times$$ 1 filter performs 3 multiplications per convolution operation. Sliding through the input, we perform in total 4 $$\times$$ 4 $$\times$$ 3 = 48 multiplications. As we have 4 filters, the total number of multiplications for the pointwise convolution is equal to 48 $$\times$$ 4 = 192.
+Each 1 $$\times$$ 1 filter performs 1 multiplication per input channel, so each filter performs 3 multiplications per spatial location (since the input has 3 channels). Sliding the filters across the entire 4 $$\times$$ 4 input feature map, we perform in total 4 $$\times$$ 4 $$\times$$ 3 = 48 multiplications for each filter. Since we have 4 filters, the total number of multiplications for the pointwise convolution is 48 $$\times$$ 4 = 192.
 
-The total number of operations for depthwise separable convolution is the sum of the depthwise and pointwise operations:
+The total number of operations for the depthwise separable convolution is the sum of the depthwise and pointwise operations:
 
 $$ 432 \ (depthwise) + 192 \ (pointwise) = 624 \ multiplications. $$
 
