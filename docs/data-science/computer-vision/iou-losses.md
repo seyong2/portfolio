@@ -17,7 +17,7 @@ When it comes to regression problems, **Mean Squared Error (MSE)** and **Mean Ab
 
 However, MSE and MAE have limitations. One major issue is that they are **not scale-invariant**. When an image is scaled up or down, the ground truth and predicted bounding boxes change accordingly, but the loss values also vary based on the scale. Specifically, as the image is scaled down, both the MSE and MAE losses decrease, even if the relative positions of the boxes remain the same. This suggests a need for loss functions that are robust to changes in scale.
 
-Another limitation is that bounding boxes optimized using MSE or MAE do not always have high quality. Consider the figure below: we have two examples, each with three predicted bounding boxes. For each predicted bo, the losses are calculated using MSE (denoted as $$||.||_2$$) and MAE (denoted as $$||.||_1$$), alongside alternative loss functions such as IoU and GIoU (discussed later). In example (a), all three black bounding boxes have the same MSE loss, but clearly, the first box has worse quality compared to the other two.
+Another limitation is that bounding boxes optimized using MSE or MAE do not always have high quality. Consider the figure below: we have two examples, each with three predicted bounding boxes. For each predicted bo, the losses are calculated using MSE (denoted as $$\|\|.\|\|_2$$) and MAE (denoted as $$\|\|.\|\|_1$$), alongside alternative loss functions such as IoU and GIoU (discussed later). In example (a), all three black bounding boxes have the same MSE loss, but clearly, the first box has worse quality compared to the other two.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/fa14d63d-6c86-44a2-aa60-613d2d76edeb">
