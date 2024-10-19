@@ -7,7 +7,7 @@ layout: default
 
 This post covers various loss functions used in object detection tasks. In general, object detection requires two types of loss functions: one for **object classification** (e.g., determining whether an object is a cat or a dog) and another for **bounding box regression**. We'll focus primarily on the latter, which measures how accurately the predicted bounding boxes enclose objects.
 
-## Traditional Regression Loss Functions: MSE and MAE
+### Traditional Regression Loss Functions: MSE and MAE
 
 When it comes to regression problems, **Mean Squared Error (MSE)** and **Mean Absolute Error (MAE)** might be the first loss functions that come to our mind- and they can be used for the bounding box regression as well. A bounding box is defined by four coordinates: $$(x_1, y_1, x_2, y_2)$$, where $$(x_1, y_1)$$ represents the top-left corner and $$(x_2, y_2)$$ represents the bottom-right corner. Given two bounding boxes- the **ground truth** box (blue) and the **predicted box** (red)- the goal is to calculate how close the predicted bounding box is to the ground truth by comparing the coordinates of the two boxes.
 
@@ -69,7 +69,7 @@ While GIoU mitigates the gradient vanishing problem for non-overlapping boxes, i
 Additionally, when the two bounding boxes are horizontally or vertically aligned with no overlap, GIoU degrades to IoU, causing the same gradient vanishing problem.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/1904bf06-cfbb-4d97-b885-6140eef53283">
+  <img src="https://github.com/user-attachments/assets/3fd191a8-32be-46d2-aa2e-0fbe5b18a509">
 </p>
 
 To address these issues,  **Distance IoU (DIoU)** introduces a penalty term that minimizes the normalized distance between the centers of two bounding boxes. Then, the DIoU loss is defined as:
