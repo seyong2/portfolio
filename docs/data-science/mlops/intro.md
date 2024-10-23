@@ -39,5 +39,7 @@ Once error analysis shows the model is performing well, we move to deployment. F
 
 Even after deployment, ongoing monitoring and maintenance are essential. One challenge we may encounter is concept or data drift, which occurs when the data distribution changes. Promptly addressing such drifts ensures the system continues to provide value as intended.
 
+In the coming posts, I’ll dive deeper into each phase of the MLOps lifecycle, sharing practical insights and lessons learned along the way. Whether you're building your own models or curious about MLOps in general, I hope these posts will offer helpful guidance. Stay tuned for more updates on my journey as I take this project from concept to production!
+
 #### Resources
 - [Machine Learning in Production by DeepLearning AI](https://www.coursera.org/learn/introduction-to-machine-learning-in-production)
