@@ -5,7 +5,7 @@ nav_order: 1
 layout: default
 ---
 
-As part of building my application to identify cats' emotions, I realized that deploying the model is just as important as training it. That's where machine learning operations (MLOps) come in. MLOps covers the entire lifecycle of a machine learning project— from data definition and model training to deployment and monitoring. In this section, I'll be sharing key MLOps concepts I'm learning from **DeepLearning.AI's MLMachine Learning in Production** course, which are essential for deploying models effectively. 
+As part of building my application to identify cats' emotions, I realized that deploying the model is just as important as training it. That's where machine learning operations (MLOps) come in. MLOps covers the entire lifecycle of a machine learning project— from data definition and model training to deployment and monitoring. In this section, I'll be sharing key MLOps concepts I'm learning from **DeepLearning.AI's Machine Learning in Production** course, which are essential for deploying models effectively. 
 
 The course starts by outlining the machine learning project lifecycle, from scoping the project to training models and selecting deployment strategies.
 
