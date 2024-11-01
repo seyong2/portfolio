@@ -10,7 +10,7 @@ A machine learning model development process consists of three main components: 
 We start with an initial model, hyperparameters, and data, followed by training and error analysis to assess performance. Based on this analysis, we refine the model, hyperparameters, or data. We repeat this cycle until the model's performance is satisfactory. Before production deployment, a final audit ensures that the model is robust and ready.
 
 <p align="center">
-  <img src=https://github.com/user-attachments/assets/57e70a55-2c6d-45a9-adc7-65646f1dc6d4>
+  <img src="https://github.com/user-attachments/assets/57e70a55-2c6d-45a9-adc7-65646f1dc6d4">
 </p>
 
 ## Low Test Error is NOT Enough
