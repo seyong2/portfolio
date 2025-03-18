@@ -1,7 +1,7 @@
 ---
 title: Detecting Cat's Face
 parent: Cat Emotion Recognition Journey
-nav_order: 3
+nav_order: 4
 layout: default
 ---
 
