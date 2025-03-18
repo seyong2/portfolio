@@ -23,7 +23,7 @@ The first step in landmark detection involves **locating and cropping the cat's 
 
 ### Regions Detection
 
-Once the face is detected and cropped, the image is rescaled and processed to detect key facial regions. A model similar to the face detector is then applied, but with an **output layer of size 10** (accounting for both x and y coordinates), corresponding to the **coordinates of five key region centers**:
+Once the face is detected and cropped, the image is rescaled and processed to detect key facial regions. A model similar to the face detector is then applied, but with an **output layer of size 10** (accounting for both $x$ and $y$ coordinates), corresponding to the **coordinates of five key region centers**:
 
 - Both eyes
 - The nose (whiskers area)
