@@ -4,6 +4,7 @@ parent: Cat Emotion Recognition Journey
 nav_order: 2
 layout: default
 ---
+
 In the previous post, we introduced five core emotions that cats can express. Now, before gathering cat image data for input, we need to outline how our emotion detection system will work. It’s not as simple as uploading an image and having the application instantly recognize the cat's emotion. We need to design an algorithm capable of performing this task. A key component of this is an automated process to detect the cat's face in an image and pinpoint specific facial features (ears, eyes, etc.) that are essential for classifying emotions. To achieve this, I found a study by Martvel, G. et al., which presents a deep learning architecture for detecting cat facial landmarks. I plan to reference this research and replicate their approach as a foundational element of my project.
 
 To address the significant challenge researchers face in animal affective computing—namely, the lack of comprehensive, high-quality datasets—the authors of this paper introduced a dataset of cat facial images annotated with bounding boxes and 48 facial landmarks based on cat facial anatomy. Additionally, they implemented convolutional neural networks for detecting these landmarks, demonstrating excellent performance in the process. The steps involved in the landmark detection process are as follows.
