@@ -1,7 +1,7 @@
 ---
 title: How to Detect Cat Facial Landmarks?
 parent: Cat Emotion Recognition Journey
-nav_order: 2
+nav_order: 3
 layout: default
 ---
 
