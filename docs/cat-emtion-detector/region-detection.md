@@ -13,7 +13,7 @@ In [How to Detect Cat Facial Landmarks?](https://seyong2.github.io/portfolio/doc
 
 ### Computing Region Centers
 
-To build a **cat region detection model**, we first need to **compute the center points for each region. This is done by **averaging the individual landmark coordinates** within each region. 
+To build a **cat region detection model**, we first need to **compute the center points for each region**. This is done by **averaging the individual landmark coordinates** within each region. 
 
 To illustrate, consider this cat image:
 
