@@ -10,7 +10,6 @@ In [How to Detect Cat Facial Landmarks?](https://seyong2.github.io/portfolio/doc
 - Two eyes
 - Nose and mouth
 - Two ears
--
 
 ### Computing Region Centers
 
