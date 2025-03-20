@@ -5,7 +5,7 @@ nav_order: 6
 layout: default
 ---
 
-In [How to Detect Cat Facial Landmarks?](https://seyong2.github.io/portfolio/docs/cat-emtion-detector/prep.html), the second step in the **cat emotion detection framework** is to **identify the center points of five primary facial regions:
+In [How to Detect Cat Facial Landmarks?](https://seyong2.github.io/portfolio/docs/cat-emtion-detector/prep.html), the second step in the **cat emotion detection framework** is to **identify the center points of five primary facial regions**:
 
 - Two eyes
 - Nose and mouth
