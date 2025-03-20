@@ -26,3 +26,7 @@ The test images below display the **predictions (in red) from the five models**.
 </p>
 
 With this, the **landmark detection pipeline is complete**, marking a major milestone in this journey. Now, it's time to bring everything together. In the next and final post, I'll reflect on the entire process, discuss key takeaways, and explore the final step—**using these facial landmarks to analyze cat emotions**. Stay tuned!
+
+---
+#### Resources
+- Martvel, G., Shimshoni, I. & Zamansky, A. Automated Detection of Cat Facial Landmarks. Int J Comput Vis 132, 3103–3118 (2024). https://doi.org/10.1007/s11263-024-02006-w
