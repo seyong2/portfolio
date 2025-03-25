@@ -27,7 +27,7 @@ At first glance, it might not be immediately clear why $$h_t$$ depends on $$h_{t
 
 ### Gradient Vanishing and Exploding
 
-While RNNs are well-suited for processing sequential data effectively due to their structure, there are scenarios where they may struggle. Consider a situation where we have a longer text, and we want to predict the final word of the text "I went grocery shopping and bought a steak. Then, I met up with my friend, and we had lunch together... When I came back home, I prepared dinner with what I bought earlier, the *steak*". The recent context suggests that the next word is likely a type of food, but to pinpoint exactly which food, we need to recall the mention of steak from much earlier in the text. As the gap between the relevant information and the point where it's needed increases, RNNs struggle to make the connection. This difficulty in learning long-term dependencies is a significant limitation of RNNs. Let's explore this issue with a simple example.
+While RNNs are well-suited for processing sequential data effectively due to their structure, there are scenarios where they may struggle. Consider a situation where we have a longer text, and we want to predict the final word of the text "I went grocery shopping and bought a steak. Then, I met up with my friend, and we had lunch together... When I came back home, I prepared dinner with what I bought earlier, the *steak*". The recent context suggests that the next word is likely a type of food, but to pinpoint exactly which food, we need to recall the mention of steak from much earlier in the text. **As the gap between the relevant information and the point where it's needed increases, RNNs struggle to make the connection**. This difficulty in learning long-term dependencies is a significant limitation of RNNs. Let's explore this issue with a simple example.
 
 To illustrate this, let's consider a simpler example. Suppose we want to predict the last word of the sentence: "The mysterious forest echoed with sounds of unknown creatures at dusk." An RNN model tasked with predicting the final word operates as shown in the diagram below.
 
@@ -36,7 +36,7 @@ To illustrate this, let's consider a simpler example. Suppose we want to predict
 </p>
 
 
-In this model, the hidden state at each time step, $$h_t$$, has access to the current input, $$x_t$$, and the previous hidden state, $$$$h_{t-1}$$$$. The hidden state $$h_{t-1}$$ implicitly captures information about all the previous words in the sentence, from $$x_0$$ to $$x_{t-1}$$. Therefore, the final hidden state, $$h_9$$, which we want the model to use for predicting the next word, depends on all the previous words. To ensure accurate predictions, the model's weights and bias must be optimized through backpropagation. However, since RNNs deal with sequential data, they utilize a variant of the backpropagation algorithm known as backpropagation through time (BPTT). This process involves computing gradients for each time step, starting from the last one and moving backward to the first.
+In this model, the hidden state at each time step, $$h_t$$, has access to the current input, $$x_t$$, and the previous hidden state, $$h_{t-1}$$. The hidden state $$h_{t-1}$$ implicitly captures information about all the previous words in the sentence, from $$x_0$$ to $$x_{t-1}$$. Therefore, the final hidden state, $$h_9$$, which we want the model to use for predicting the next word, depends on all the previous words. To ensure accurate predictions, the model's weights and bias must be optimized through backpropagation. However, **since RNNs deal with sequential data, they utilize a variant of the backpropagation algorithm known as backpropagation through time (BPTT)**. This process involves computing gradients for each time step, starting from the last one and moving backward to the first.
 
 If we want to compute the gradient of the error, $$E$$ (the difference between the prediction and target), with respect to the weight associated with the hidden states, $$w_h$$, the gradient would be expressed as follows:
 
@@ -58,7 +58,7 @@ Conversely, if $$w_h$$ is greater than 1, repeated multiplication can cause the 
 
 ## Long Short Term Memory Networks
 
-The issue of long-term dependencies, which RNNs struggle with, can be addressed by using a variant called Long Short Term Memomry Networks (LSTMs). While The structure of a standard RNN is relatively simple, with a single tanh activation layer, LSTMs introduce a more complex architecture. Like RNNs, LSTMs have a chain of repeating modules, but they differ in that each module contains more layers, allowing them to better manage the flow of information over time. In this section, we'll explore the function of each layer in an LSTM and how it enables the network to carry forward important past information, unlike RNNs. But first, let's take a look at the basic structure of LSTMs. 
+The issue of long-term dependencies, which RNNs struggle with, can be addressed by using a variant called Long Short Term Memomry Networks (LSTMs). While he structure of a standard RNN is relatively simple, with a single tanh activation layer, LSTMs introduce a more complex architecture. **Like RNNs, LSTMs have a chain of repeating modules, but they differ in that each module contains more layers, allowing them to better manage the flow of information over time**. In this section, we'll explore the function of each layer in an LSTM and how it enables the network to carry forward important past information, unlike RNNs. But first, let's take a look at the basic structure of LSTMs. 
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/37fc3149-1e56-46b3-ad60-b1d8c8969bf2" title="lstm">
@@ -85,7 +85,7 @@ $$ f_t=\sigma(W_f \cdot [h_{t-1}, x_t] + b_f) $$
 
 ### Input Gate
 
-After discarding unneeded information from $$C_{t-1}$$, the next step is to add new information. The input gate determines how much of the new candidate cell state $$C̃_t$$ should be added to the current cell state C_t. The candidate cell state is the new information that could update the cell state.
+After discarding unneeded information from $$C_{t-1}$$, the next step is to add new information. The input gate determines how much of the new candidate cell state $$C̃_t$$ should be added to the current cell state $$C_t$$. The candidate cell state is the new information that could update the cell state.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/26352159-b724-4bc5-bd5c-516f1502f282" title="lstm-input">
