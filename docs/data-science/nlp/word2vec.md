@@ -9,7 +9,7 @@ Converting words to numbers is a crucial step in many natural language processin
 
 In this post, we'll walk through implementing the Word2Vec algorithm in Python, a widely used technique for generating word embeddings. Word2Vec is a shallow neural network with two layers, designed to reconstruct the linguistic contexts of words. It primarily comes in two flavors: **Continuous Bag of Words (CBOW)** and **Skip-gram**. Our focus will be on the Skip-gram model.
 
-The Skip-gram model operates by taking a target word as input and attempting to predict its surrounding context words. For instance, given the sentence "The cat sat on the mat" and the target word "cat," the model aims to predict the context words "The," "sat," "on," and "mat." We'll explore how the Skip-gram model functions with a straightforward example, demonstrating its practical implementation and effectiveness.
+The **Skip-gram model operates by taking a target word as input and attempting to predict its surrounding context words**. For instance, given the sentence "The cat sat on the mat" and the target word "cat," the model aims to predict the context words "The," "sat," "on," and "mat." We'll explore how the Skip-gram model functions with a straightforward example, demonstrating its practical implementation and effectiveness.
 
 ## Load Necessary Libraries
 
@@ -50,13 +50,13 @@ corpus = [
 corpus = [c.lower() for c in corpus]
 ```
 
-When using Word2Vec, whether or not to remove stop words depends on the specific application and the nature of the data. In this example, we will remove stop words due to the reasons below:
+**When using Word2Vec, whether or not to remove stop words depends on the specific application and the nature of the data**. In this example, we will remove stop words due to the reasons below:
 
-- Reducing noise: Stop words like "the", "is", "and", etc. are very common and often don't carry much semantic meaning. Including them might add noise to the model, as they could dominate the word vectors and lead to less informative embeddings.
+- **Reducing noise**: Stop words like "the", "is", "and", etc. are very common and often don't carry much semantic meaning. Including them might add noise to the model, as they could dominate the word vectors and lead to less informative embeddings.
 
-- Focusing on meaningful words: By removing stop words, we focus the model on the words that contribute more to the actual meaning of the text. This can lead to better quality word embeddings, especially for downstream tasks like text classification, sentiment analysis, or topic modeling.
+- **Focusing on meaningful words**: By removing stop words, we focus the model on the words that contribute more to the actual meaning of the text. This can lead to better quality word embeddings, especially for downstream tasks like text classification, sentiment analysis, or topic modeling.
 
-- Improving efficiency: Removing stop words reduces the vocabulary size and the number of word pairs the model needs to process, which can lead to faster training and less computational cost.
+- **Improving efficiency**: Removing stop words reduces the vocabulary size and the number of word pairs the model needs to process, which can lead to faster training and less computational cost.
 
 In summary, while there are compelling reasons to remove stop words before training Word2Vec models, it ultimately depends on the specific use case and the importance of contextual information in your data. Thus, it's often best to experiment with both approches and see which approach works better for your data and objectives.
 
@@ -144,13 +144,14 @@ unique_words, len(unique_words)
 
 After removing the stop words, we are left with 43 unique words.
 
-Now we convert the data into numbers before feeding them to the model. The input to the model is a target word, which is typically represented as a one-hot encoded vector. In a one-hot encoded vector, only one element is set to 1 (corresponding to the word's index in the vocabulary), and all other elements are set to 0.
+Now we convert the data into numbers before feeding them to the model. **The input to the model is a target word, which is typically represented as a one-hot encoded vector**. In a one-hot encoded vector, only one element is set to 1 (corresponding to the word's index in the vocabulary), and all other elements are set to 0.
 
-In addition, to construct the input, we also need to determine the context window size, the number of words before and after the target word that are considered context words. If the window size is 2, this means that the model considers the two words immediately before and the two words immediately after the target word as context words. From the example before, "The cat sat on the mat", the context words for "cat" would be "The", "sat", and "on". Thus, the valid training pairs for "cat" with a window size of 2 would be:
+In addition, to construct the input, **we also need to determine the context window size, the number of words before and after the target word that are considered context words**. If the window size is 2, this means that the model considers the two words immediately before and the two words immediately after the target word as context words. From the example before, "The cat sat on the mat", the context words for "cat" would be "The", "sat", and "on". Thus, the valid training pairs for "cat" with a window size of 2 would be:
 
 (cat, The)
 (cat, sat)
 (cat, on)
+
 After one-hot encoding, the training pairs would look like:
 
 Input:
@@ -224,7 +225,7 @@ x = tf.compat.v1.placeholder(tf.float32, shape=(None, len(unique_words)))
 y_label = tf.compat.v1.placeholder(tf.float32, shape=(None, len(unique_words)))
 ```
 
-With our input data prepared, the next step is to define the projection layer (recall that skip-gram is a two-layer model). In this layer, the one-hot vector is multiplied by a weight matrix, converting it into a dense vector. This weight matrix is commonly known as the input embedding matrix. The dense vector produced has a lower dimensionality than the original one-hot vector, enabling more efficient encoding of semantic information.
+With our input data prepared, **the next step is to define the projection layer** (recall that skip-gram is a two-layer model). In this layer, **the one-hot vector is multiplied by a weight matrix**, converting it into a dense vector. This weight matrix is commonly known as the **input embedding matrix**. The dense vector produced has a lower dimensionality than the original one-hot vector, enabling more efficient encoding of semantic information.
 
 For this example, we want the embedding matrix to be two-dimensional, making it easier to visualize the matrix later.
 
@@ -238,7 +239,7 @@ b1 = tf.Variable(tf.random.normal([1]))
 hidden_layer = tf.add(tf.matmul(x, w1), b1)
 ```
 
-The dense vector is then multiplied by another weight matrix to produce a score for each word in the vocabulary. These scores are passed through a softmax function, which converts them into probabilities. Each probabiliy represents the likelihood of a word in the vocabulary being a context word for the target word.
+**The dense vector is then multiplied by another weight matrix to produce a score for each word in the vocabulary**. These scores are passed through a softmax function, which converts them into probabilities. **Each probabiliy represents the likelihood of a word in the vocabulary being a context word for the target word**.
 
 ```python
 # output layer
@@ -247,7 +248,7 @@ b2 = tf.Variable(tf.random.normal([1]))
 prediction = tf.nn.softmax(tf.add(tf.matmul(hidden_layer, w2), b2))
 ```
 
-We are nearly ready to begin training the model. However, before proceeding, we need to complete the final step of defining the loss function and optimizer. The model adjusts its weights to maximize the probability of correctly predicting context words given a target word, which involves minimizing a loss function. For this task, we will use cross-entropy loss as our loss function and apply stochastic gradient descent (SGD) as the optimizer with a learning rate of 0.05.
+We are nearly ready to begin training the model. However, before proceeding, we need to complete the final step of defining the loss function and optimizer. **The model adjusts its weights to maximize the probability of correctly predicting context words given a target word**, which involves minimizing a loss function. For this task, we will use cross-entropy loss as our loss function and apply stochastic gradient descent (SGD) as the optimizer with a learning rate of 0.05.
 
 ```python
 # loss function: cross_entropy
@@ -376,6 +377,6 @@ plt.show()
 
 ![image](https://github.com/user-attachments/assets/6495bd72-56da-4554-a4f8-2bbca0af43b7)
 
-The traditional Skip-gram model faces significant computational challenges due to the need to evaluate probabilities across an entire vocabulary, especially when dealing with very large vocabularies. This process can become prohibitively slow and inefficient, as it involves calculating scores for every word and performing extensive backpropagation.
+**The traditional Skip-gram model faces significant computational challenges due to the need to evaluate probabilities across an entire vocabulary**, especially when dealing with very large vocabularies. This process can become prohibitively slow and inefficient, as it involves calculating scores for every word and performing extensive backpropagation.
 
 Negative sampling offers a practical solution by altering the training objective. Instead of predicting probabilities for the entire vocabulary, it narrows the focus to distinguishing between a few positive context words and a limited number of negative samples. This approach dramatically reduces the computational requirements, enabling the model to train effectively even with vast datasets and extensive vocabularies. By streamlining the training process, negative sampling makes it feasible to leverage large-scale data, enhancing both efficiency and scalability in word embedding models.
