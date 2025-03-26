@@ -11,6 +11,10 @@ In this post, we'll walk through implementing the Word2Vec algorithm in Python, 
 
 The **Skip-gram model operates by taking a target word as input and attempting to predict its surrounding context words**. For instance, given the sentence "The cat sat on the mat" and the target word "cat," the model aims to predict the context words "The," "sat," "on," and "mat." We'll explore how the Skip-gram model functions with a straightforward example, demonstrating its practical implementation and effectiveness.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b5e1a5f7-8190-44da-971e-e28af928d4f7" title="skip-gram">
+</p>
+
 ## Load Necessary Libraries
 
 ```python
@@ -380,3 +384,7 @@ plt.show()
 **The traditional Skip-gram model faces significant computational challenges due to the need to evaluate probabilities across an entire vocabulary**, especially when dealing with very large vocabularies. This process can become prohibitively slow and inefficient, as it involves calculating scores for every word and performing extensive backpropagation.
 
 Negative sampling offers a practical solution by altering the training objective. Instead of predicting probabilities for the entire vocabulary, it narrows the focus to distinguishing between a few positive context words and a limited number of negative samples. This approach dramatically reduces the computational requirements, enabling the model to train effectively even with vast datasets and extensive vocabularies. By streamlining the training process, negative sampling makes it feasible to leverage large-scale data, enhancing both efficiency and scalability in word embedding models.
+
+---
+#### Resources
+- [Demystifying Neural Network in Skip-Gram Language Modeling](https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling)
