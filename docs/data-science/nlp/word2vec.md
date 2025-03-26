@@ -5,7 +5,7 @@ nav_order: 1
 layout: default
 ---
 
-Converting words to numbers is a crucial step in many natural language processing (NLP) tasks and machine learning models that involve text data. Most machine learning algorithms, especially those involving deep learning, are designed to work with numerical data. They perform mathematical operations that require inputs to be in the form of numbers. By converting words to numbers, we create a numerical representation of text, often in the form of vectors. These vectors capture the semantic meaning of words in a form that machines can process. Techniques like Word2Vec or GloVe represent words as dense vectors in a continuous vector space, where words with similar meanings are located close to each other.
+Converting words to numbers is a crucial step in many natural language processing (NLP) tasks and machine learning models that involve text data. Most machine learning algorithms, especially those involving deep learning, are designed to work with numerical data. They perform mathematical operations that require inputs to be in the form of numbers. By converting words to numbers, we create a numerical representation of text, often in the form of vectors. These vectors capture the semantic meaning of words in a form that machines can process. Word embedding techniques like Word2Vec or GloVe represent words as dense vectors in a continuous vector space, where words with similar meanings are located close to each other.
 
 In this post, we'll walk through implementing the Word2Vec algorithm in Python, a widely used technique for generating word embeddings. Word2Vec is a shallow neural network with two layers, designed to reconstruct the linguistic contexts of words. It primarily comes in two flavors: **Continuous Bag of Words (CBOW)** and **Skip-gram**. Our focus will be on the Skip-gram model.
 
@@ -146,7 +146,7 @@ After removing the stop words, we are left with 43 unique words.
 
 Now we convert the data into numbers before feeding them to the model. **The input to the model is a target word, which is typically represented as a one-hot encoded vector**. In a one-hot encoded vector, only one element is set to 1 (corresponding to the word's index in the vocabulary), and all other elements are set to 0.
 
-In addition, to construct the input, **we also need to determine the context window size, the number of words before and after the target word that are considered context words**. If the window size is 2, this means that the model considers the two words immediately before and the two words immediately after the target word as context words. From the example before, "The cat sat on the mat", the context words for "cat" would be "The", "sat", and "on". Thus, the valid training pairs for "cat" with a window size of 2 would be:
+In addition, to construct the input, **we also need to determine the context window size, the number of words before and after the target word that are considered context words**. If the window size is 2, this means that the model considers the two words immediately before and the two words immediately after the target word as context words. From the example before, "The cat sat on the mat", the context words for "cat" would be "The", "sat", and "on". Thus, the valid training pairs for the target word "cat" with a window size of 2 would be:
 
 (cat, The)
 (cat, sat)
@@ -154,10 +154,10 @@ In addition, to construct the input, **we also need to determine the context win
 
 After one-hot encoding, the training pairs would look like:
 
-Input:
+Input (target word "cat"):
 [[0, 1, 0, 0, 0], [0, 1, 0, 0, 0], [0, 1, 0, 0, 0]]
 
-target
+target (context words "the", "sat", and "on"):
 [[1, 0, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 1, 0]]
 
 ```python
@@ -225,9 +225,9 @@ x = tf.compat.v1.placeholder(tf.float32, shape=(None, len(unique_words)))
 y_label = tf.compat.v1.placeholder(tf.float32, shape=(None, len(unique_words)))
 ```
 
-With our input data prepared, **the next step is to define the projection layer** (recall that skip-gram is a two-layer model). In this layer, **the one-hot vector is multiplied by a weight matrix**, converting it into a dense vector. This weight matrix is commonly known as the **input embedding matrix**. The dense vector produced has a lower dimensionality than the original one-hot vector, enabling more efficient encoding of semantic information.
+With our input data prepared, **the next step is to define the projection layer**. In this layer, **the one-hot vector is multiplied by a weight matrix**, converting it into a dense vector. This weight matrix is commonly known as the **input embedding matrix**. The dense vector produced has a lower dimensionality than the original one-hot vector, enabling more efficient encoding of semantic information.
 
-For this example, we want the embedding matrix to be two-dimensional, making it easier to visualize the matrix later.
+The input embedding matrix has dimensions of $$V\times N$$ where $$V$$ is the vocabulary size and $$N$$ is the embedding size. The choice of $$N$$ depends on how rich we want the embeddings to be- higher dimensions capture more information but require more data and computation. For this example, I'll set the embedding size to two, making it easier to visualize the matrix later. The result is a dense vector of shape $$(1\times N)$$ represents the word embedding of the target word.
 
 ```python
 # define dimension for word embedding
@@ -239,7 +239,7 @@ b1 = tf.Variable(tf.random.normal([1]))
 hidden_layer = tf.add(tf.matmul(x, w1), b1)
 ```
 
-**The dense vector is then multiplied by another weight matrix to produce a score for each word in the vocabulary**. These scores are passed through a softmax function, which converts them into probabilities. **Each probabiliy represents the likelihood of a word in the vocabulary being a context word for the target word**.
+**The dense vector is then multiplied by another weight matrix (transpose of the input embedding matrix) to produce a score for each word in the vocabulary**. These scores are passed through a softmax function, which converts them into probabilities. **Each probabiliy represents the likelihood of a word in the vocabulary being a context word for the target word**.
 
 ```python
 # output layer
