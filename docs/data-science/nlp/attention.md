@@ -5,9 +5,9 @@ nav_order: 3
 layout: default
 ---
 
-In the Seq2Seq model that we explored, the encoder processes input data and produces a **context vector**- a single vector that encapsulates the entire input sequence. This vector is then passed to the decoder, which uses it to generate the output sequence. However, it's important to consider the challenge of compressing all the information from the input sequence into a single vector. This compression likely leads to a loss of valuable information, as the context vector may not fully reflect the intricacies of the entire input.
+In the Seq2Seq model that we explored previously, the encoder processes input data and produces a **context vector**- a single vector that encapsulates the entire input sequence. This vector is then passed to the decoder, which uses it to generate the output sequence. However, it's important to consider the **challenge of compressing all the information from the input sequence into a single vector**. This compression likely leads to a loss of valuable information, as the context vector may not fully reflect the intricacies of the entire input.
 
-Additionally, during the generation of the output sequence, the decoder might struggle to produce accurate results when relying solely on a single fixed representation of the source. Different parts of the input sequence can be more relevant at different stages of output generation. This limitation—where the context vector becomes a bottleneck—motivates the introduction of the **Attention** mechanism, which addresses the issue of fixed representation by allowing the model to focus on different parts of the input dynamically.
+Additionally, during the generation of the output sequence, the decoder might struggle to produce accurate results when relying solely on a single fixed representation of the source. Different parts of the input sequence can be more relevant at different stages of output generation. This limitation—where the context vector becomes a bottleneck—motivates the introduction of the **Attention** mechanism, which addresses the issue of fixed representation by **allowing the model to focus on different parts of the input dynamically**.
 
 ## Attention Mechanism: A Solution to the Fixed Representation Problem
 
@@ -25,7 +25,7 @@ For a decoder time step $$t$$, given $$m$$ encoder states, the general computati
 
 1. **Attention Scores**:
 
-$$score(h_t, s_k)$, where $k=1,...,m$$
+$$score(h_t, s_k)$$, where $$k=1,...,m$$
 
 2. **Attention Weights**:
 
@@ -43,7 +43,7 @@ There are several ways to compute attention scores, but two of the most popular 
 
   - The attention score is computed using a feedforward neural network. The decoder's hidden state $$h_{t-1}$$ is combined with each encoder's hidden state $$s_k$$ to compute the attention score. The resulting context vector $$c^{(t)}$$ is then used, along with $$h_{t-1}$$, as input to the decoder at time step $$t$$.
     
-$$ score = v_a^T \cdot tanh (W_a \cdot [s_k^T; h_{t-1}] $$
+$$ score = v_a^T \cdot tanh (W_a \cdot [s_k^T; h_{t-1}]) $$
     
 - **Luong Attention** (Multiplicative Attention):
   
