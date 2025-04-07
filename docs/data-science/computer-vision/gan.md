@@ -50,7 +50,7 @@ Here, the generator aims to fool the discriminator by making $$ G(z^{(i)}) $$ as
   <img src="https://github.com/user-attachments/assets/2239cecd-5965-4cd9-b9d5-2290cff4d218">
 </p>
 
-As shown in the figure above, the grandients of $$ log (1-D) $$ become very small when $$D$$ is near 0, making it difficult for the generator to learn. 
+As shown in the figure above, the grandients of $$ log (1-D) $$ become very small when $$D$$ is near 1, making it difficult for the generator to learn. 
 
 To address this, the generator's objective function is often modified to:
 
@@ -61,3 +61,6 @@ which is mathematically equivalent to:
 $$ max \frac{1}{m} \sum_{i=1}^{m} log(D(G(z^{(i)}))) $$
 
 The adjusted formulation provides **stronger gradients**, espeically in the early stages of training, and helps the generator learn more effectively.
+
+#### Resources
+- [Generative Adversarial Nets](https://arxiv.org/pdf/1406.2661)
