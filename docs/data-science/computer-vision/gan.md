@@ -22,7 +22,7 @@ Relating this to our diamond example:
 - $$Z$$ represents the raw material or input noise the generator uses to create a fake diamond.
 - $$G(Z)$$ is the diamond produced by the generator.
 - The discriminator examines $$G(Z)$$ and determines whether it is real or fake.
-- A real diamond is denoted by $$Z$$.
+- A real diamond is denoted by $$X$$.
 
 ### Objective Functions
 
@@ -44,13 +44,13 @@ For the generator, we focus only on the second term of the discriminator's objec
 
 $$ min \frac{1}{m} \sum_{i=1}^{m} log(1 - D(G(z^{(i)}))) $$
 
-Here, the generator aims to fool the discriminator by making $$ G(z^{(i)}) $$ as close to 1 as possible (i.e., being classified as real). However, this formulation can lead to the **vanishing grandient problem**, especially when $$ D(G(z^{(i)})) $$ is close to 0.
+Here, the generator aims to fool the discriminator by making $$ D(G(z^{(i)})) $$ as close to 1 as possible (i.e., being classified as real). However, this formulation can lead to the **vanishing grandient problem**, especially when $$ D(G(z^{(i)})) $$ is close to 0.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/2239cecd-5965-4cd9-b9d5-2290cff4d218">
 </p>
 
-As shown in the figure above, the grandients of $$ log (1-D) $$ become very small when $$D$$ is near 1, making it difficult for the generator to learn. 
+The figure above shows the shape of $$ log (1-D) $$ and $$ -log(D) $$ with respect to the value of $$D$$ on the $$x$$-axis. It can be observed that the grandients of $$ log (1-D) $$ become very small when $$D$$ is near 0, making it difficult for the generator to learn. 
 
 To address this, the generator's objective function is often modified to:
 
@@ -60,7 +60,28 @@ which is mathematically equivalent to:
 
 $$ max \frac{1}{m} \sum_{i=1}^{m} log(D(G(z^{(i)}))) $$
 
-The adjusted formulation provides **stronger gradients**, espeically in the early stages of training, and helps the generator learn more effectively.
+The adjusted formulation provides **stronger gradients**, as shown in the figure, especially in the early stages of training when the discriminator can easily identify the generator’s outputs as fake. This helps the generator learn more effectively.
+
+
+### Training Algorithm
+
+The algorithm for training a GAN model is as follows:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/117c4380-c6cb-47df-b456-e9172a1c93d4">
+</p>
+
+In simple terms, during each training epoch, we update the discriminator $$k$$ times using both real and fake data. Then, with the updated discriminator, we update the generator once. This may raise the question of why the discriminator is updated more frequently (if $$k$$ > 1) than the generator.
+
+The reason is that the discriminator provides the generator with learning signals. Since the generator relies entirely on the discriminator’s feedback and has no direct access to real data, an undertrained discriminator would provide weak or uninformative gradients, slowing down or destabilizing learning. By updating the discriminator multiple times per generator update, we ensure it remains a strong, reliable source of feedback. This approach improves training stability, helps prevent mode collapse, and allows the generator to learn from more informative gradients.
+
+### Conclusion
+
+At their core, Generative Adversarial Networks (GANs) are a game between two players: a **generator**, which tries to create fake data, and a **discriminator**, which tries to tell real from fake. Through this back-and-forth, the generator learns to produce outputs that look increasingly realistic.
+
+But training GANs is not always smooth. A common issue is the vanishing gradient problem: when the discriminator becomes too good, it confidently rejects the generator’s outputs, leaving the generator with almost no feedback to improve. This can cause training to stall and is one of the reasons GANs are considered difficult to train.
+
+Even with these challenges, GANs remain one of the most influential ideas in AI, showing how competition can drive cooperation to produce creativity.
 
 #### Resources
 - [Generative Adversarial Nets](https://arxiv.org/pdf/1406.2661)
