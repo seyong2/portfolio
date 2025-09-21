@@ -34,6 +34,7 @@ $$ L_{GAN}(F,D_X,Y,X)=E_{x\sim p_{data}(x)}[log D_X(x)]+E_{y\sim p_{data}(y)}[lo
 In the adversarial framework, the generators aim to minimize these losses, while the discriminators aim to maximize them:
 
 $$ min_{G} max_{D_Y} L_{GAN}(G,D_Y,X,Y)$$
+
 $$ min_{F} max_{D_X} L_{GAN}(F,D_X,Y,X) $$ 
 
 CycleGAN introduces an additional objective called the **cycle consistency loss**, which prevents the two learned mappings, $$ G $$ and $$ F $$, from contradicting each other.
