@@ -28,7 +28,11 @@ plt.axis('off')
 plt.show()
 ```
 
-![thor2](https://github.com/user-attachments/assets/bdc8c632-b5d9-49d7-8fd9-1b7553dd143d)
+<p align="center">
+  <img width="511" height="389" src="https://github.com/user-attachments/assets/bdc8c632-b5d9-49d7-8fd9-1b7553dd143d">
+</p>
+
+![thor2]()
 
 The Canny edge detection algorithm consists of five main steps:
 
@@ -50,7 +54,10 @@ plt.imshow(gray_img, cmap='gray')
 plt.axis('off')
 plt.show()
 ```
-<img width="511" height="389" alt="thor_gray" src="https://github.com/user-attachments/assets/ad99a8b1-af7a-44df-8773-879b306ce15e" />
+
+<p align="center">
+    <img width="511" height="389" src="https://github.com/user-attachments/assets/ad99a8b1-af7a-44df-8773-879b306ce15e">
+</p>
 
 ## 1. Noise Reduction - Gussian Blur
 
@@ -98,7 +105,9 @@ plt.axis('off')
 plt.show()
 ```
 
-<img width="511" height="389" alt="thor_gray_blur" src="https://github.com/user-attachments/assets/1ad2ef73-7b2c-4624-b49a-f7ae62f55904" />
+<p align="center">
+    <img width="511" height="389" src="https://github.com/user-attachments/assets/1ad2ef73-7b2c-4624-b49a-f7ae62f55904">
+</p>
 
 ## 2. Gradient Calculation - Sobel Operator
 
@@ -163,7 +172,9 @@ plt.axis('off')
 plt.show()
 ```
 
-<img width="511" height="389" alt="thor_sobel" src="https://github.com/user-attachments/assets/6ef8021a-7238-4bb3-8e65-9b05195c648c" />
+<p align="center">
+    <img width="511" height="389" src="https://github.com/user-attachments/assets/6ef8021a-7238-4bb3-8e65-9b05195c648c">
+</p>
 
 ## 3. Non-Maximum Suppression
 
@@ -230,7 +241,9 @@ plt.axis('off')
 plt.show()
 ```
 
-<img width="511" height="389" alt="thor_nms" src="https://github.com/user-attachments/assets/a7a292c8-06de-4f37-ae07-914a7bcbfbb5" />
+<p align="center">
+    <img width="511" height="389" src="https://github.com/user-attachments/assets/a7a292c8-06de-4f37-ae07-914a7bcbfbb5" >
+</p>
 
 ## 4.Double Thresholding
 
@@ -275,7 +288,9 @@ plt.axis('off')
 plt.show()
 ```
 
-<img width="511" height="389" alt="thor_dt" src="https://github.com/user-attachments/assets/89ff5fa8-0246-443b-9cbf-b98dbc58a5f9" />
+<p align="center">
+    <img width="511" height="389" src="https://github.com/user-attachments/assets/89ff5fa8-0246-443b-9cbf-b98dbc58a5f9">
+</p>
 
 ## 5. Edge Tracking by Hysteresis
 
@@ -312,7 +327,9 @@ plt.axis('off')
 plt.show()
 ```
 
-<img width="511" height="389" alt="thor_hys" src="https://github.com/user-attachments/assets/6884d1ff-4524-40da-95c1-b845cedd4156" />
+<p align="center">
+    <img width="511" height="389" src="https://github.com/user-attachments/assets/6884d1ff-4524-40da-95c1-b845cedd4156">
+</p>
 
 As we've seen through the example, the Canny edge detection algorithm is capable of reliably identifying clear and meaningful edges in images. I hope this notebook helped you better understand how it works.
 
