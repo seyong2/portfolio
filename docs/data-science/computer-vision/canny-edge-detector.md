@@ -243,7 +243,7 @@ plt.show()
     <img width="511" height="389" src="https://github.com/user-attachments/assets/a7a292c8-06de-4f37-ae07-914a7bcbfbb5" >
 </p>
 
-## 4.Double Thresholding
+## 4. Double Thresholding
 
 To distinguish real edges from noise, we apply double thresholding, which classifies each pixel into one of three categories: 
 
