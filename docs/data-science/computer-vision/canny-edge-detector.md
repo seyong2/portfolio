@@ -32,8 +32,6 @@ plt.show()
   <img width="511" height="389" src="https://github.com/user-attachments/assets/bdc8c632-b5d9-49d7-8fd9-1b7553dd143d">
 </p>
 
-![thor2]()
-
 The Canny edge detection algorithm consists of five main steps:
 
 1. Apply a Gaussian filter to smooth the image and reduce noise.
