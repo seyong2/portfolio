@@ -120,7 +120,7 @@ $$
 Once the gradients are computed, we can combine them to obtain the gradient magnitude ($||\nabla I||$), which indicates the strength of the edge, and the gradient direction ($\theta$), which tells us the orientation of the edge.
 
 $$
-||\nabla I|| = \sqrt{G_x^2+G_y^2}
+\|\|\nabla I\|\| = \sqrt{G_x^2+G_y^2}
 $$
 
 $$
