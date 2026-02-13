@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://seyong2.github.io/portfolio/</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/mlops/intro.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/mlops/deployment.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/mlops/model-development.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/mlops/error-analysis.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/nlp/nlp.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/nlp/word2vec.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/nlp/lstm.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/nlp/attention.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/nlp/transformers.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/nlp/decoder-only-transformers.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/computer-vision/computer-vision.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/computer-vision/depthwise-convolution.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/computer-vision/iou-losses.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/computer-vision/efficientnet.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/computer-vision/gan.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/computer-vision/cyclegan.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/data-science/computer-vision/canny-edge-detector.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/cat-emtion-detector/</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/cat-emtion-detector/cat-feelings.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/cat-emtion-detector/catflw-dataset.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/cat-emtion-detector/prep.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/cat-emtion-detector/face-detection.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/cat-emtion-detector/face-detection-2.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/cat-emtion-detector/region-detection.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/cat-emtion-detector/landmark-detection.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seyong2.github.io/portfolio/docs/cat-emtion-detector/emotion-recognition.html</loc>
+  <lastmod>2026-02-13T10:35:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>
