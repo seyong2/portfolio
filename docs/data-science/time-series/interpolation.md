@@ -20,7 +20,7 @@ This formula calculates a weighted estimate based on the proximity of the target
 Let's look at a simple example using an oil price dataset where some dates have missing oil prices.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/809fcbef-620f-44ad-a475-5674744490a2">
+  <img src="https://github.com/user-attachments/assets/f5dfc077-dcf1-4148-9748-7692b0261be6">
 </p>
 
 In Python, we can apply the linear interploation method discussed above using the 
@@ -30,7 +30,7 @@ In Python, we can apply the linear interploation method discussed above using th
 df_oil['dcoilwtico_interpolated'] = df_oil['dcoilwtico'].interpolate(method='linear')
 ```
 
-If we plot the interpolated oil prices, we can observe that the gaps are no longer present.
+If we plot the interpolated oil prices (in red), we can observe that the gaps are no longer present.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/af21d0c5-b7dd-4c87-861f-0ac6c8d21e6a">
