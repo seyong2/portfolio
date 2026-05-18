@@ -26,7 +26,7 @@ Let's look at a simple example using an oil price dataset where some dates have 
 In Python, we can apply the linear interploation method discussed above using the 
 `interpolate(method='linear')` function.
 
-```
+```python
 df_oil['dcoilwtico_interpolated'] = df_oil['dcoilwtico'].interpolate(method='linear')
 ```
 
