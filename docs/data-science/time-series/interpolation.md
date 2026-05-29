@@ -35,3 +35,5 @@ If we plot the interpolated oil prices (in red), we can observe that the gaps ar
 <p align="center">
   <img src="https://github.com/user-attachments/assets/af21d0c5-b7dd-4c87-861f-0ac6c8d21e6a">
 </p>
+
+---
