@@ -17,7 +17,7 @@ The final application predicts five primary moods:
 ### The ML Pipeline
 
 <p align="center">
-  <img alt="MoodMeow_Pipeline" src="https://github.com/user-attachments/assets/c4997336-3598-4f49-a57d-17eecdabd66d">
+  <img alt="MoodMeow_Pipeline" src="https://github.com/user-attachments/assets/4ebf2ae9-e438-4e19-87f9-a8a283b36ef0">
 </p>
 
 #### Dataset
@@ -53,7 +53,7 @@ Rather than stopping at training a model, I wanted to take the project through t
 Research &rarr; Data &rarr; Modeling &rarr; Experimentation &rarr; Evaluation &rarr; Development &rarr; Application
 
 This meant dealing not only with model performance, but also with challenges such as limited labeled data, object and landmark detection, model conversion, and running inference efficiently on a mobile device.
-<img width="122" height="602" alt="MoodMeow_Pipeline" src="https://github.com/user-attachments/assets/7f512d3c-66e7-434c-a6f9-b49ee9c9f1ce" />
+
 
 ### Why I Built This
 
