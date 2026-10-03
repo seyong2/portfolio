@@ -17,7 +17,7 @@ The final application predicts five primary moods:
 ### The ML Pipeline
 
 <p align="center">
-  <img alt="MoodMeow_Pipeline" src="https://github.com/user-attachments/assets/45e79f2b-dbc4-4144-b155-8fb5694299e2">
+  <img alt="MoodMeow_Pipeline" src="https://github.com/user-attachments/assets/1a79b0ac-d73d-469d-ae63-25f27f311d91">
 </p>
 
 #### Dataset
