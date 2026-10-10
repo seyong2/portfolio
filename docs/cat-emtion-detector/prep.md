@@ -201,6 +201,18 @@ This multi-stage architecture follows the central idea of the research paper: di
   <img src="https://github.com/user-attachments/assets/d63e47e4-ed06-4a1b-8be5-0575f9f92e8c" title="ensemble-detection">
 </p>
 
+## What's Next?
+
+At this point, I had a clear pipeline for transforming an input photograph into a structured set of 48 facial landmarks.
+
+The research paper gave me a starting point for the face localization, facial region detection, and landmark detection stages. However, understanding the overall architecture was only the beginning. I still needed to implement and train the models, evaluate their performance, and make sure their predictions were accurate enough for the next stage of the project.
+
+I decided to investigate each stage in more detail, starting with the model architecture and training process.
+
+The next step was to look under the hood of the EfficientNetV2-based models: how they were designed, how they learned to predict bounding boxes or landmark coordinates, and how I evaluated their performance.
+
+These experiments would determine whether I could reliably extract the facial information needed for the ultimate goal of MoodMeow: inferring a cat's emotional state from its facial characteristics.
+
 ---
 #### Resources
 - Martvel, G., Shimshoni, I. & Zamansky, A. Automated Detection of Cat Facial Landmarks. Int J Comput Vis 132, 3103–3118 (2024). https://doi.org/10.1007/s11263-024-02006-w
