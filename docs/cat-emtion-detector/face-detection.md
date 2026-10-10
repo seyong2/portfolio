@@ -36,6 +36,32 @@ For reference, TorchVision documents the model and its pretrained weights here:
 - [EfficientNetV2-S documentation](https://docs.pytorch.org/vision/stable/models/generated/torchvision.models.efficientnet_v2_s.html)
 - [EfficientNetV2 paper](https://arxiv.org/abs/2104.00298)
 
+## 3. Adapting EfficientNetV2 for Bounding-Box Regression
+
+The original EfficientNetV2-S model is designed for image classification. Its classification head produces scores for predefined categories. However, my task was different: given an image, I wanted the model to predict the location of a cat's face.
+
+To achieve this, I needed to replace the original classification head with a regression head.
+
+### How the modified architecture works
+
+The research paper describes a model based on EfficientNetV2 in which the original top layers are removed and three fully connected layers are added, with sizes of 128, 64, and 4.
+
+The architecture can be summarized as follows:
+
+1. **Pretrained EfficientNetV2 feature extractor**: processes the input image and produces a representation of its visual features
+2. **First fully connected layer (128 units)**: learns a transformation of the extracted features.
+3. **Second fully connected layer (64 units)**: further transforms the representation before the final prediction.
+4. **Output layer (4 units)**: predicts the coordinates of the bounding box.
+
+ReLU activation functions are used in the hidden layers, while the final layer uses a linear activation so that it can output continuous coordinate values.
+
+The four outputs represent the upper-left and lower-right corners of the bounding box:
+
+$$[x_{min}, y_{min}, x_{max}, y_{max}]$$
+
+These coordinates define a rectangle around the cat's face.
+
+
 
 
 
