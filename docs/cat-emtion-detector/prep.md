@@ -41,9 +41,9 @@ Emotion Inference
 
 To understand how cat facial landmarks could be detected automatically, I looked for research specifically focused on feline facial landmark detection.
 
-I found a paper by Martvel, Shimshoni, and Zamansky titled **"Automated Detection of Cat Facial Landmarks."** The paper was particularly relevant because it came from the same research group behind the CatFLW dataset I had just selected.
+I found a paper by Martvel, Shimshoni, and Zamansky titled **"Automated Detection of Cat Facial Landmarks."** The paper was particularly relevant because described an approach for detecting the 48 facial landmarks in the CatFLW dataset.
 
-The authors proposed a deep learning pipeline for detecting the 48 facial landmarks in CatFLW. Their approach breaks the problem into several stages rather than trying to predict all 48 landmarks directly from the entire image.
+Rather than using one model to predict all landmarks directly from an entire image, the authors broke the problem into several stages. They used separate EfficientNetV2-based models for different tasks, including face localization, facial region detection, and landmark detection.
 
 The general idea was:
 
@@ -53,9 +53,9 @@ The general idea was:
 4. Use separate models to detect landmarks within each region.
 5. Combine the results into the final set of 48 landmarks.
 
-This gave me a strong starting point for my own landmark detection system.
+This approach gave me a starting point for designing my own pipeline. Each model had a specific responsibility, allowing the overall problem to be broken down into smaller, more manageable tasks.
 
-However, there was still an important problem to solve before I could even get to the face.
+I adopted this general architecture for MoodMeow and added preliminary validation steps to ensure that the input image contained a cat and a suitable frontal face.
 
 ## Step 1: Detecting the Cat
 
@@ -120,11 +120,13 @@ Once a cat was detected, I could focus on the more specific question: **does the
 
 ## Step 2: Checking for a Frontal Cat Face
 
-For this step, I used OpenCV's `haarcascade_frontalcatface` classifier.
+After confirming that the image contained a cat, I needed to determine whether it showed a suitable frontal face.
 
-The purpose of the Haar Cascade in my pipeline was different from that of YOLOv7. Rather than simply checking whether there was a cat somewhere in the image, it allowed me to check whether a **frontal cat face** was present.
+For this step, I used OpenCV's `haarcascade_frontalcatface` classifier. Its role was to check for the presence of a frontal cat face, rather than to perform the final face localization.
 
-The Haar Cascade returns candidate bounding boxes for detected frontal cat faces. I initially considered using this bounding box directly for the final face crop, but its localization was not accurate enough for the precision required by the landmark detection models.
+The Haar Cascade returns candidate bounding boxes for detected frontal cat faces and initially, I considered using this bounding box directly for the final face crop. However, I noticed that these bounding boxes sometimes excluded important parts of the cat's face, particularly the ears.
+
+This was a problem for my project because the subsequent landmark detection models needed to analyze five facial regions: the left eye, right eye, left ear, right ear, and mouth. A crop that excluded part of the ears could prevent the corresponding model from detecting the necessary landmarks.
 
 Therefore, I used the Haar Cascade primarily as a **frontal-face validation step**, while a separate face detector was responsible for obtaining the precise face bounding box.
 
@@ -149,52 +151,55 @@ Precise face crop
 
 The distinction is important because the goal of this stage is not simply to find a cat. **The goal is to obtain a clean, usable crop of the cat's face.**
 
-This is a good example of something I learned while building the project: a model does not necessarily need to solve the entire problem to be useful. Sometimes a relatively simple model can work well as one component of a larger pipeline.
+## Step 3: Precisely Localizing the Face
 
-------
-Now that we have a dataset ready to experiment with, we're moving on to the most exciting part-defining the framework for cat emotion detection. It's not as simple as providing an image and at instant you get a result like "*Your cat is feeling...*" (hope it's the case). Instead, we need to design a system capable of performing this task accurately. 
+After checking for a frontal cat face, I needed to locate the face accurately enough for further analysis.
 
-A crucial component of this system is an automated process to locate the cat's face in an image and identify its facial landmarks, which serve as the foundation for classifying emotions. To achieve this, I came across a paper from the same researchers who published the dataset I'll be using. In their work, they present a deep learning architecture for detecting cat facial landmarks-and it appears they used this architecture to annotate the dataset itself. 
-
-One of the major challenges in animal affective computing is the lack of comprehensive, high-quality datasets. To address this, the authors introduced a dataset of cat facial images annotated with bounding boxes and 48 facial landmarks, cafefully selected based on cat facial anatomy. Additionally, they implemented convolutional neural networks (CNNs) for detecting these landmarks, achieving strong performance in the process. 
-
-The landmark detection pipeline follows these steps:
-
-### Face Detection
-
-The first step in landmark detection involves **locating and cropping the cat's face** from the input image. The authors used an **EfficientNetV2 model**, which takes the image as input and outputs a bounding box defined by four coordinates (representing the upper-left and lower-right corners).
+For this task, I used a dedicated **EfficientNetV2-based face localization model**, following the approach described in the research paper.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/916c2f79-ae9a-4f96-9938-d0d808c12226" title="face-detection">
 </p>
 
-### Regions Detection
+The model predicts a bounding box around the cat's face. I then use this bounding box to crop the image, providing a more focused input for the subsequent stages.
 
-Once the face is detected and cropped, the image is rescaled and processed to detect key facial regions. A model similar to the face detector is then applied, but with an **output layer of size 10** (accounting for both $$x$$ and $$y$$ coordinates), corresponding to the **coordinates of five key region centers**:
+This is different from using the bounding box produced by YOLOv7 or the Haar Cascade. YOLOv7 detects the cat rather than the face, while the Haar Cascade's bounding boxes sometimes exclude important facial features, such as the ears.
 
-- Both eyes
-- The nose (whiskers area)
-- Both ears
+The face localization model is therefore responsible for obtaining the crop needed by the landmark detection pipeline.
 
-To generate training data for this task, the authors **averaged the landmark coordinates from these regions**, selecting 5 representative points out of the original 48 landmarks.
+## Step 4: Facial Region Detection
 
-### Ensemble Landmarks Detection
+Once I had the face crop, the next task was to locate the individual facial regions.
 
-With the **centers of key regions** identified, the image is **aligned based on the eyes** to reduce variations in roll tilt angles. Then, five fixed-size regions are cropped, ensuring consistency in the detected features. This approach prevents unnecessary variations that could occur if bounding boxes were dynamically adjusted.
+Inspired by the research paper, I used a **separate EfficientNetV2-based model for facial region detection.**
 
-Each cropped region is resized to match the input requirements of the **EfficientNetV2 model**, and the **landmarks are categorized by region**:
+This model identifies the regions needed for the next stage of landmark detection. In my implementation, these are:
 
-- **8 landmarks per eye**
-- **5 landmarks per ear**
-- **22 landmarks for the nose and whiskers area**
+* Left eye
+* Right eye
+* Left ear
+* Right ear
+* Mouth
 
-Landmark detection is then performed by an **ensemble of five models**, each with an output layer corresponding to **twice the number of landmarks**. The detected landmarks are mapped back to the original image, forming a final output vector of **96 coordinates** (48 landmarks).
+Detecting these regions separately allows the following models to focus on the relevant part of the face instead of processing the entire facial image for every landmark prediction.
+
+This region-based approach was particularly useful for my project because the final emotion inference depends on characteristics extracted from specific facial structures.
+
+## Step 5: Landmark Detection with Region-Specific Models
+
+After detecting the fire facial regions, I used a separate EfficientNetV2-based landmark detection model for each region.
+
+Each model predicts the landmark coordinates associated with its assigned facial structure. For example, the left-eye model focused on the landmarks around the left eye, while the two ear models independently handle their respective ears.
+
+The outputs from the five models are then combined to reconstruct the complete facial landmark representation.
+
+The result is a set of **48 facial landmarks**, each represented by an (x) and (y) coordinate.
+
+This multi-stage architecture follows the central idea of the research paper: divide a complex landmark detection problem into smaller tasks, then combine their outputs into a complete facial representation.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d63e47e4-ed06-4a1b-8be5-0575f9f92e8c" title="ensemble-detection">
 </p>
-
-Now, it's time to put this into action! My next challenge is to replicate this architecture for detecting cat facial landmarks. It won’t be easy, but I’m excited to dive in—there’s a lot to learn, and I can’t wait to see where this takes me!
 
 ---
 #### Resources
