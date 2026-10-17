@@ -1,5 +1,5 @@
 ---
-title: From Computer Vision Models to a Mobile App: Building MoodMeow
+title: From Computer Vision Models to a Mobile App - Building MoodMeow
 parent: MoodMeow - Cat Emotion Recognition
 nav_order: 8
 layout: default
