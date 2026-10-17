@@ -31,6 +31,14 @@ The interface was designed to make the results easy to explore without requiring
 
 > **Add screenshots here:** The home screen, a prediction result, the mood calendar, and the Mood Dive screen would make this section much stronger. Use screenshots from the actual published application rather than recreating the interface for the article.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/cd5ddc7c-4f0b-46d4-8d32-def480d533b1" width=200>
+  <img src="https://github.com/user-attachments/assets/75168518-4436-4734-a684-2cea6a15125d" width=200>
+  <img src="https://github.com/user-attachments/assets/86384a96-4f25-43cf-991d-589d878387b7" width=200>
+  <img src="https://github.com/user-attachments/assets/31b927af-05e0-4906-9a41-abe5048cdf58" width=200>
+  <img src="https://github.com/user-attachments/assets/5d43391f-5986-4764-9ca1-65182aa12729" width=200>
+</p>
+
 ## 2. Integrating the computer vision pipeline
 
 The main technical challenge was connecting the individual models into a coherent inference workflow.
@@ -178,7 +186,3 @@ MoodMeow brought together the different stages of my cat emotion recognition pro
 Although the approach has important limitations and should not be considered a validated emotion recognition system, completing the application allowed me to explore the challenges of making a machine learning workflow usable outside a research environment.
 
 The project also reinforced an important lesson: building an end-to-end machine learning application is not only about producing a prediction. It is about connecting the technical components, designing a coherent user experience, and being transparent about what the system can and cannot tell us.
-
-**Project:** [MoodMeow on GitHub](https://github.com/seyong2/moodmeow)
-
-**Note:** The source repository is private. The link above is intended for authorised readers; the application source code is not publicly accessible through this article.
