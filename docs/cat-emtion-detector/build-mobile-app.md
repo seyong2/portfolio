@@ -29,8 +29,6 @@ The main experience includes:
 
 The interface was designed to make the results easy to explore without requiring users to understand the underlying computer vision models.
 
-> **Add screenshots here:** The home screen, a prediction result, the mood calendar, and the Mood Dive screen would make this section much stronger. Use screenshots from the actual published application rather than recreating the interface for the article.
-
 <p align="center">
   <img src="https://github.com/user-attachments/assets/cd5ddc7c-4f0b-46d4-8d32-def480d533b1" width=200>
   <img src="https://github.com/user-attachments/assets/75168518-4436-4734-a684-2cea6a15125d" width=200>
